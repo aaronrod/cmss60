@@ -2,9 +2,14 @@ package android.cmss60.mobile_demo;
 
 import android.app.Activity;
 import android.cmss60.R;
+import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
+import android.webkit.JsResult;
+import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.widget.Toast;
 
 public class JSInterfaceActivity extends Activity {
 
@@ -13,19 +18,39 @@ public class JSInterfaceActivity extends Activity {
 
     private static final String JS_URL = "file:///android_asset/demo_js.html";
 
+    Context mThis;
     private WebView mWebView;
+    protected WebChromeClient mWebChromeClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Log.v(TAG, "onCreate())");
+
+        mThis = this;
+
         setContentView(R.layout.activity_jsinterface);
+
+        mWebView = (WebView) findViewById(R.id.activity_jsinterface_webview);
+        /// set up web chrome client for Javascript calls like console.log to work
+        mWebChromeClient = new WebBrowserWebChromeClient();
+        mWebView.setWebChromeClient(mWebChromeClient);
 
         showWebView();
     }
 
-    private void showWebView() {
+    protected class WebBrowserWebChromeClient extends WebChromeClient {
+        @Override
+        public boolean onJsAlert(WebView view, String url, String message, JsResult result) {
+            Log.v(TAG, String.format("onJsAlert() url: %s message %s", url, message));
+            result.confirm();
+            Toast.makeText(mThis, message, Toast.LENGTH_SHORT).show();
+            return true;
+        }
+    }
 
-        mWebView = (WebView) findViewById(R.id.activity_jsinterface_webview);
+    private void showWebView() {
 
         WebSettings settings = mWebView.getSettings();
 

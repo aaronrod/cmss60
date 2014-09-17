@@ -27,7 +27,7 @@ public class JSInterface {
         if (toast == null) {
             Log.v(TAG, "toast is null");
         } else {
-            Toast.makeText(mContext, toast, Toast.LENGTH_SHORT).show();
+            Toast.makeText(mContext, toast, Toast.LENGTH_LONG).show();
         }
     }
 }

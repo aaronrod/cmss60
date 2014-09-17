@@ -1,7 +1,22 @@
-<input type="button" value="Say hello" onClick="showAndroidToast('Hello Android!')" />
+<!DOCTYPE html>
+<html>
+<body>
+
+<p><b>This button calls JSInterface.showToast()</b></p>
+
+<input type="button" value="Say hello" style="font: bold 24px Arial" onClick="showAndroidToast('Hello Android!')" />
+
+<p><b>This button calls window.alert()</b></p>
+
+<input type="button" value="Alert" style="font: bold 24px Arial" onClick="window.alert('Display alert box!')" />
 
 <script type="text/javascript">
     function showAndroidToast(toast) {
+        Android.log("demo_js.html showAndroidToast()");
         Android.showToast(toast);
     }
 </script>
+
+</body>
+</html>
+
