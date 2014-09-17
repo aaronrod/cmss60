@@ -1,0 +1,8 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="android.cmss60.mobile_demo.YouTubeActivity" >
+    <item android:id="@+id/reset_radio_buttons"
+        android:title="Reset Radio Buttons"
+        android:orderInCategory="100"
+        android:showAsAction="never" />
+</menu>

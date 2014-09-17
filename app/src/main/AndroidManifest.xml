@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="android.cmss60" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".core.SocialTVApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".core.MainActivity"
+            android:label="@string/title_activity_routing" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".mobile_demo.VideoPlayer"
+            android:label="@string/title_activity_video_player"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+
+            <!-- android:screenOrientation="landscape" -->
+        </activity>
+        <activity
+            android:name=".mobile_demo.DemoActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".mobile_demo.BrowserActivity"
+            android:label="BrowserActivity" >
+        </activity>
+        <activity
+            android:name=".mobile_demo.JSInterfaceActivity"
+            android:label="JSInterfaceActivity" >
+        </activity>
+        <activity
+            android:name=".lesson0_lifecycle.Lesson0Activity"
+            android:label="Lesson0"
+            android:launchMode="singleTask" >
+        </activity>
+        <activity
+            android:name=".lesson1_youtube.Lesson1Activity"
+            android:label="Lesson1"
+            android:launchMode="singleTask" >
+        </activity>
+        <activity
+            android:name=".lesson2_browser.Lesson2Activity"
+            android:label="Lesson2"
+            android:launchMode="singleTask" >
+        </activity>
+        <activity
+            android:name=".lesson3_videoplayer.Lesson3Activity"
+            android:label="Lesson3"
+            android:launchMode="singleTask" >
+        </activity>
+        <activity
+            android:name=".lesson3_videoplayer.Lesson3_VideoPlayer"
+            android:label="Lesson3_VideoPlayer"
+            android:launchMode="singleTask" >
+        </activity>
+        <activity
+            android:name=".lesson4_javascript.Lesson4Activity"
+            android:label="Lesson4"
+            android:launchMode="singleTask" >
+        </activity>
+        <activity
+            android:name=".mobile_demo.YouTubeActivity"
+            android:label="@string/title_activity_you_tube" >
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,80 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView2"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/android_robot0" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="YouTube Video"
+            android:onClick="clickYouTube"
+            android:id="@+id/button5" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_weight="0.99"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <Button
+                android:layout_weight="0.33"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:onClick="clickLocalVideo"
+                android:text="Local VOD"
+                android:id="@+id/localVideoButton" />
+
+            <Button
+                android:layout_weight="0.33"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:onClick="clickRemoteVideo"
+                android:text="Remote VOD"
+                android:id="@+id/remoteVideoButton" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="HLS"
+                android:id="@+id/lesson0Button"
+                android:onClick="clickHlsVideo"
+                android:layout_weight="0.33" />
+        </LinearLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Web Browser"
+            android:id="@+id/button6"
+            android:onClick="clickWebBrowser"
+            android:layout_gravity="center_horizontal" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="JavaScript Interface"
+            android:onClick="clickJavaScriptInterface"
+            android:id="@+id/button7"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+</ScrollView>
