@@ -7,7 +7,8 @@ package android.cmss60.lesson0_lifecycle;
  * 1. Activity Lifecycle
  * 2. Layouts/Widgets
  * 3. Intents
- * 4. Create Activity and connect it
+ * 4. Create Activity manually and link it via button/Intent
+ * 4. Create Activity with shortcut and link it via button/Intent
  */
 
 import android.app.Activity;
@@ -20,7 +21,7 @@ import android.view.View;
 
 public class Lesson0Activity extends Activity {
 
-    private static final String TAG = "MainActivity";
+    private static final String TAG = "Lesson0Activity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
