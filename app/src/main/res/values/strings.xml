@@ -19,7 +19,7 @@
     <string name="youtube_url">youtube_url</string>
     <string name="remote_vod_url">http://clips.vorwaerts-gmbh.de/VfE_html5.mp4</string>
     <string name="hls_url">http://playertest.longtailvideo.com/adaptive/captions/playlist.m3u8</string>
-    <string name="title_activity_routing">RoutingActivity</string>
+    <string name="title_android_tutorial">Android Tutorial</string>
     <string name="routing_title">Lessons</string>
     <string name="title_activity_lesson3">Lesson3Activity</string>
     <string name="lesson3">Lesson 3 - Video Player</string>
