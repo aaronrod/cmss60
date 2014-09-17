@@ -5,9 +5,11 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.cmss60.R;
+import android.util.Log;
 import android.view.View;
 
 public class Lesson3Activity extends Activity {
+    private static final String TAG = "Lesson3Activity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,10 +24,11 @@ public class Lesson3Activity extends Activity {
     }
 
     public void clickLocalVod(View v){
-        //This yields "android.resource://demo.example.cmss60/raw/2130968576" where the
+        //This yields "android.resource://android.cmss60/raw/2130968576" where the
         //number on the right is produced by the automatically generated R class
         String url = "android.resource://" + getPackageName() + "/raw/" + R.raw.sunflowers;
         startPlayer(url);
+        Log.v(TAG, "url='" + url + "'");
     }
 
     public void clickRemoteVod(View v){
@@ -35,7 +38,8 @@ public class Lesson3Activity extends Activity {
     }
 
     public void clickHls(View v){
-        String url = "http://playertest.longtailvideo.com/adaptive/captions/playlist.m3u8";
+        Resources r = getResources();
+        String url = r.getString(R.string.hls_url);
         startPlayer(url);
     }
 
