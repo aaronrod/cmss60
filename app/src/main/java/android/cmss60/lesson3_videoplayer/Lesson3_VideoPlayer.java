@@ -13,7 +13,7 @@ import android.widget.VideoView;
 public class Lesson3_VideoPlayer extends Activity
         implements MediaPlayer.OnCompletionListener, MediaPlayer.OnPreparedListener {
 
-    private static final String TAG = "VideoPlayer";
+    private static final String TAG = "Lesson3_VideoPlayer";
     public static final String KEY_URL = "key_url";
     private String url;
     private VideoView videoView;

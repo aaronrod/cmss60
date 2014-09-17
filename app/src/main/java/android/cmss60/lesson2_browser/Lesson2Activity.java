@@ -21,7 +21,7 @@ import android.cmss60.mobile_demo.WebBrowser;
 
 public class Lesson2Activity extends Activity {
 
-    private static final String TAG = "BrowserActivity";
+    private static final String TAG = "Lesson2Activity";
 
     private static final int HDLR_MSG_WEBVIEW_INITIALIZED = 100;
 
