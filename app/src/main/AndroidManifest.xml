@@ -55,6 +55,11 @@
             android:launchMode="singleTask" >
         </activity>
         <activity
+            android:name=".lesson2_browser.BrowserActivity1"
+            android:label="Lesson2"
+            android:launchMode="singleTask" >
+        </activity>
+        <activity
             android:name=".lesson3_videoplayer.Lesson3Activity"
             android:label="Lesson3"
             android:launchMode="singleTask" >
