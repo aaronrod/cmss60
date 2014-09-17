@@ -14,7 +14,7 @@ import android.webkit.WebView;
 
 public class Lesson4Activity extends Activity {
 
-    private static final String TAG = "JSInterfaceActivity";
+    private static final String TAG = "Lesson4Activity";
     private static final String JS_TAG = "JavaScript";
 
     private static final String JS_URL = "file:///android_asset/demo_js.html";//http://10.1.2.19/demo_js.html";
