@@ -12,6 +12,9 @@ import android.os.Bundle;
 import android.cmss60.R;
 import android.view.View;
 
+/**
+ * Home page - links to all lessons
+ */
 public class MainActivity extends Activity {
 
     @Override
