@@ -1,6 +1,6 @@
 CMS.S60
 =======
-updated September 12th, 2014
+updated September 17th, 2014
 
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
