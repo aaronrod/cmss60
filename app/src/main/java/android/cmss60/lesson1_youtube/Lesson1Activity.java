@@ -5,7 +5,7 @@ package android.cmss60.lesson1_youtube;
  *
  * Objectives:
  * 1. Create a button
- * 2. Intents to  YouTube app
+ * 2. Intents to YouTube app
  * 3. Manifest File
  * 4. SharedPreferences
  * 5. AsyncTask

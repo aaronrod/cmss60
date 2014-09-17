@@ -2,6 +2,8 @@ package android.cmss60.lesson4_javascript;
 
 
 /**
+ * Objectives:
+ *
  * 1. Review assets
  * 2. Review JavaScript integration
  */

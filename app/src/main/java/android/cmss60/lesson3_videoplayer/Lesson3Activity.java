@@ -2,14 +2,21 @@ package android.cmss60.lesson3_videoplayer;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.cmss60.R;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.cmss60.R;
-import android.util.Log;
 import android.view.View;
 
+/**
+ * Objectives:
+ *
+ * 1. Review local VOD, remote VOD, and HLS
+ * 2. Review Bundle extras with Intent
+ * 3. Review AlertDialog
+ * 4. String Resources
+ */
 public class Lesson3Activity extends Activity {
     private static final String TAG = "Lesson3Activity";
 
