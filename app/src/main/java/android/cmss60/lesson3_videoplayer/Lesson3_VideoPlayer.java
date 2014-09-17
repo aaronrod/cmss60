@@ -2,6 +2,7 @@ package android.cmss60.lesson3_videoplayer;
 
 import android.app.Activity;
 import android.cmss60.R;
+import android.content.pm.ActivityInfo;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -15,17 +16,22 @@ public class Lesson3_VideoPlayer extends Activity
 
     private static final String TAG = "Lesson3_VideoPlayer";
     public static final String KEY_URL = "key_url";
+    public static final String KEY_LANDSCAPE = "key_landscape";
     private String url;
+    private boolean isLandscape;
     private VideoView videoView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video_player);
-
         Bundle extras = getIntent().getExtras();
         if(extras != null){
             url = extras.getString(KEY_URL);
+            isLandscape = extras.getBoolean(KEY_LANDSCAPE);
+            if(isLandscape){
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+            }
         }
 
         videoView = (VideoView)findViewById(R.id.videoView);
