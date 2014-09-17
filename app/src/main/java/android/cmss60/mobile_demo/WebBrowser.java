@@ -8,10 +8,12 @@ import android.net.Uri;
 import android.os.Handler;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ProgressBar;
 
 public class WebBrowser extends WebView {
 
@@ -24,6 +26,7 @@ public class WebBrowser extends WebView {
     private boolean mIsInitialized = false;
     private Handler mOnInitHdlr;
     int mHandlerWhat;
+    private ProgressBar mProgressBarSpinner;
 
     public WebBrowser(Context context) {
         super(context);
@@ -45,6 +48,11 @@ public class WebBrowser extends WebView {
 
     public void init(Handler handler, int handleWhat) {
         Log.v(TAG, "init()");
+
+        if(mProgressBarSpinner != null){
+            mProgressBarSpinner.setVisibility(View.VISIBLE);
+        }
+
         // set callback handler
         mOnInitHdlr = handler;
         mHandlerWhat = handleWhat;
@@ -58,6 +66,10 @@ public class WebBrowser extends WebView {
         //loadUrl(CNN_PAGE);
     }
 
+    public void setProgressBarSpinner(ProgressBar progressBar){
+        this.mProgressBarSpinner = progressBar;
+    }
+
     protected class WebBrowserWebViewClient extends WebViewClient {
         @Override
         public void onPageFinished(WebView view, String url) {
@@ -66,6 +78,10 @@ public class WebBrowser extends WebView {
                 // first web page fully loaded
                 mIsInitialized = true;
                 mOnInitHdlr.sendEmptyMessage(mHandlerWhat);
+            }
+
+            if(mProgressBarSpinner != null){
+                mProgressBarSpinner.setVisibility(View.GONE);
             }
         }
 

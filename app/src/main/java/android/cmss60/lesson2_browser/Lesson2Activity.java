@@ -18,6 +18,8 @@ import android.util.Log;
 import android.cmss60.R;
 import android.cmss60.core.SocialTVApplication;
 import android.cmss60.mobile_demo.WebBrowser;
+import android.view.View;
+import android.widget.ProgressBar;
 
 public class Lesson2Activity extends Activity {
 
@@ -52,12 +54,17 @@ public class Lesson2Activity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_browser);
 
+
+
         showWebBrowser();
     }
 
     private void showWebBrowser() {
 
         mWebBrowser = (WebBrowser) findViewById(R.id.activity_browser_webbrowser);
+
+        ProgressBar spinner = (ProgressBar)findViewById(R.id.webview_progressBar);
+        mWebBrowser.setProgressBarSpinner(spinner);
 
         mWebBrowser.init(mHandler, HDLR_MSG_WEBVIEW_INITIALIZED);
     }
