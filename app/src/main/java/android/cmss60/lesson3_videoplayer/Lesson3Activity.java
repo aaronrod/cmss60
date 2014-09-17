@@ -1,6 +1,8 @@
 package android.cmss60.lesson3_videoplayer;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -17,9 +19,10 @@ public class Lesson3Activity extends Activity {
         setContentView(R.layout.activity_lesson_three);
     }
 
-    private void startPlayer(String url){
+    private void startPlayer(String url, boolean isLandscape){
         Intent i = new Intent(this, Lesson3_VideoPlayer.class);
         i.putExtra(Lesson3_VideoPlayer.KEY_URL, url);
+        i.putExtra(Lesson3_VideoPlayer.KEY_LANDSCAPE, isLandscape);
         startActivity(i);
     }
 
@@ -27,20 +30,50 @@ public class Lesson3Activity extends Activity {
         //This yields "android.resource://android.cmss60/raw/2130968576" where the
         //number on the right is produced by the automatically generated R class
         String url = "android.resource://" + getPackageName() + "/raw/" + R.raw.sunflowers;
-        startPlayer(url);
-        Log.v(TAG, "url='" + url + "'");
+        startPlayerDialog(url);
     }
 
     public void clickRemoteVod(View v){
         Resources r = getResources();
         String url = r.getString(R.string.remote_vod_url);
-        startPlayer(url);
+        startPlayerDialog(url);
     }
 
     public void clickHls(View v){
         Resources r = getResources();
         String url = r.getString(R.string.hls_url);
-        startPlayer(url);
+        startPlayerDialog(url);
     }
+
+    public void startPlayerDialog(final String url) {
+
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+
+        // Set the title
+        alertDialogBuilder.setTitle("Screen Orientation");
+
+        // Set the message and actions for positive and negative buttons
+        alertDialogBuilder
+                .setMessage("Please choose one or click outside dialog to cancel.")
+                .setCancelable(true)
+                .setNegativeButton("Portrait",new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        boolean isLandscape = false;
+                        startPlayer(url, isLandscape);
+                    }
+                })
+                .setPositiveButton("Landscape",new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        boolean isLandscape = true;
+                        startPlayer(url, isLandscape);
+                    }
+                });
+
+        // Create dialog and show it
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
+
+
 
 }
