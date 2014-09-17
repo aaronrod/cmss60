@@ -5,7 +5,7 @@ package android.cmss60.lesson2_browser;
  *
  * 1. Look at BrowserActivity
  * 2. Review Intents
- * 3.
+ * 3. Review BroadcastReceiver
  *
  */
 

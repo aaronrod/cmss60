@@ -7,11 +7,12 @@ package android.cmss60.lesson1_youtube;
  * 1. Create a button
  * 2. Intents to  YouTube app
  * 3. Manifest File
- * 4.
+ * 4. SharedPreferences
+ * 5. AsyncTask
  */
 
 import android.app.Activity;
-import android.content.Context;
+import android.cmss60.R;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -20,17 +21,19 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.cmss60.R;
 import android.widget.RadioButton;
 import android.widget.Toast;
+
 import static android.cmss60.lesson1_youtube.SetVideoPrefAsyncTask.PREF_FILE_NAME;
 
 
 public class Lesson1Activity extends Activity {
+    private static final String TAG = "Lesson1Activity";
+
+    //These constants can be placed in String XML resources (See Lesson3 - VideoPlayer)
     private static final String YOUTUBE_MIT_URL = "http://youtu.be/AOokGMre4AM";
     private static final String YOUTUBE_CALTECH_URL = "http://youtu.be/zFH_haNX38E";
-    public static final String DEFAULT_URL = "http://youtu.be/8lXdyD2Yzls";
-    private static final String TAG = "Lesson1Activity";
+    private static final String DEFAULT_URL = "http://youtu.be/8lXdyD2Yzls";
 
     private RadioButton mitRadioButton;
     private RadioButton caltechRadioButton;
@@ -48,23 +51,27 @@ public class Lesson1Activity extends Activity {
     @Override
     protected void onResume(){
         super.onResume();
+        Log.v(TAG, "onResume()");
         //check to see if buttons have been saved previously
-        toggleState(false, null);
+        toggleState(null);
     }
 
     @Override
     protected void onPause(){
         super.onPause();
+        Log.v(TAG, "onPause()");
         //save the current state of the RadioButtons
-        toggleState(true, getUrl());
+        toggleState(getUrl());
     }
 
     /**
      * Uses an AsyncTask class for SharedPreferences and optional UI update
-     * @param openEditor
      * @param urlToSave may be null
      */
-    private void toggleState(final boolean openEditor, final String urlToSave){
+    private void toggleState(final String urlToSave){
+        // If there is no URL to save, then there is no need to open Editor
+        final boolean openEditor = urlToSave != null;
+
         SharedPreferences sharedPrefs = getSharedPreferences(PREF_FILE_NAME, MODE_PRIVATE);
 
         new SetVideoPrefAsyncTask(sharedPrefs).execute(new VideoPreference() {
@@ -86,6 +93,8 @@ public class Lesson1Activity extends Activity {
                 //toggle RadioButtons.
                 if(url.compareTo(YOUTUBE_MIT_URL) == 0) {
                     mitRadioButton.setChecked(true);
+                    // Since only one RadioButton can be checked at one time, there is no need
+                    // to continue checking for a match
                     return;
                 }
 
@@ -106,8 +115,9 @@ public class Lesson1Activity extends Activity {
     }
 
     /**
-     * Three possible states of the RadioGroup
-     * @return
+     * Checks the current state of RadioGroup and maps it to a given URL depending on which button
+     * is selected. Returns {@code DEFAULT_URL } if no buttons are selected.
+     * @return String url
      */
     private String getUrl() {
 
@@ -117,6 +127,9 @@ public class Lesson1Activity extends Activity {
 
         return DEFAULT_URL;
     }
+
+    //***********************************************
+    //Menu Items below to clear RadioButton selection
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
