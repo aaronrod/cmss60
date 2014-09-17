@@ -27,6 +27,10 @@ public class Lesson3Activity extends Activity {
     }
 
     private void startPlayer(String url, boolean isLandscape){
+        if(url == null){
+            //Nothing to play...
+            return;
+        }
         Intent i = new Intent(this, Lesson3_VideoPlayer.class);
         i.putExtra(Lesson3_VideoPlayer.KEY_URL, url);
         i.putExtra(Lesson3_VideoPlayer.KEY_LANDSCAPE, isLandscape);
