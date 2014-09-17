@@ -1,17 +1,19 @@
 package android.cmss60.lesson1_youtube;
 
 /**
- * MainActivity.java
+ * Lesson1Activity.java
  *
  * Objectives:
  * 1. Create a button
- * 2. Intents to other apps
+ * 2. Intents to  YouTube app
  * 3. Manifest File
+ * 4.
  */
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,6 +23,7 @@ import android.view.View;
 import android.cmss60.R;
 import android.widget.RadioButton;
 import android.widget.Toast;
+import static android.cmss60.lesson1_youtube.SetVideoPrefAsyncTask.PREF_FILE_NAME;
 
 
 public class Lesson1Activity extends Activity {
@@ -57,25 +60,18 @@ public class Lesson1Activity extends Activity {
     }
 
     /**
-     * Uses an AsyncTask class for read/write from/to SharedPreferences.
-     * @param isInput may be null
-     * @param urlToSave
+     * Uses an AsyncTask class for SharedPreferences and optional UI update
+     * @param openEditor
+     * @param urlToSave may be null
      */
-    private void toggleState(final boolean isInput, final String urlToSave){
-        new SetPrefAsyncTask().execute(new VideoPreference() {
-            @Override
-            public Context getContext() {
-                return Lesson1Activity.this;
-            }
+    private void toggleState(final boolean openEditor, final String urlToSave){
+        SharedPreferences sharedPrefs = getSharedPreferences(PREF_FILE_NAME, MODE_PRIVATE);
+
+        new SetVideoPrefAsyncTask(sharedPrefs).execute(new VideoPreference() {
 
             @Override
-            public boolean isInput() {
-                return isInput;
-            }
-
-            @Override
-            public String getKey() {
-                return "key_url";
+            public boolean openEditor() {
+                return openEditor;
             }
 
             @Override
@@ -84,26 +80,21 @@ public class Lesson1Activity extends Activity {
             }
 
             @Override
-            public String getFileName() {
-                return "video";
-            }
-
-            @Override
-            public void postExecute(String url) {
+            public void updateUI(String url) {
                 if(null == url) return;
 
-                //toggle RadioButtons. Checks for null in case the Activity has been removed
-                if(url.compareTo(YOUTUBE_MIT_URL) == 0 && mitRadioButton != null) {
+                //toggle RadioButtons.
+                if(url.compareTo(YOUTUBE_MIT_URL) == 0) {
                     mitRadioButton.setChecked(true);
                     return;
                 }
 
-                if(url.compareTo(YOUTUBE_CALTECH_URL) == 0 && caltechRadioButton != null){
+                if(url.compareTo(YOUTUBE_CALTECH_URL) == 0){
                     caltechRadioButton.setChecked(true);
-                    return; // here just in case you add more options later
+                    return; // here in case you add more options later
                 }
 
-                //else do nothing for default
+                //do nothing for default
             }
         });
     }
