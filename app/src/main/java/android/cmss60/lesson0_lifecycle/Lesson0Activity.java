@@ -1,7 +1,7 @@
 package android.cmss60.lesson0_lifecycle;
 
 /**
- * MainActivity.java
+ * Lesson0Activity.java
  *
  * Objectives:
  * 1. Activity Lifecycle
