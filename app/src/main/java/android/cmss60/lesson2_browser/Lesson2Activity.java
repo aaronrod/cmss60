@@ -3,22 +3,19 @@ package android.cmss60.lesson2_browser;
 /**
  * Objectives:
  *
- * 1. Look at BrowserActivity
- * 2. Review Intents
- * 3.
+ * 1. Look at WebBrowser
+ * 2. Handler
+ * 3. ProgressBar Spinner
  *
  */
 
 import android.app.Activity;
+import android.cmss60.R;
+import android.cmss60.core.SocialTVApplication;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
-
-import android.cmss60.R;
-import android.cmss60.core.SocialTVApplication;
-import android.cmss60.mobile_demo.WebBrowser;
-import android.view.View;
 import android.widget.ProgressBar;
 
 public class Lesson2Activity extends Activity {
@@ -53,8 +50,6 @@ public class Lesson2Activity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_browser);
-
-
 
         showWebBrowser();
     }
