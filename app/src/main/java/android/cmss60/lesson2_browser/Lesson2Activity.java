@@ -49,7 +49,7 @@ public class Lesson2Activity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_browser);
+        setContentView(R.layout.activity_lesson2_browser);
 
         showWebBrowser();
     }
