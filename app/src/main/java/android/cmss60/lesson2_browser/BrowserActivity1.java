@@ -22,7 +22,7 @@ import android.util.Log;
 
 import android.cmss60.R;
 import android.cmss60.core.SocialTVApplication;
-import android.cmss60.mobile_demo.WebBrowser;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 public class BrowserActivity1 extends Activity {
@@ -105,6 +105,9 @@ public class BrowserActivity1 extends Activity {
     private void showWebBrowser() {
 
         mWebBrowser = (WebBrowser) findViewById(R.id.activity_browser_webbrowser);
+
+        ProgressBar spinner = (ProgressBar)findViewById(R.id.webview_progressBar);
+        mWebBrowser.setProgressBarSpinner(spinner);
 
         mWebBrowser.init(mHandler, HDLR_MSG_WEBVIEW_INITIALIZED);
     }

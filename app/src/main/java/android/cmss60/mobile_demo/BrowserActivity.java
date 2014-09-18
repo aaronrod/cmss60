@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.widget.ProgressBar;
 
 public class BrowserActivity extends Activity {
 
@@ -48,6 +49,9 @@ public class BrowserActivity extends Activity {
     private void showWebBrowser() {
 
         mWebBrowser = (WebBrowser) findViewById(R.id.activity_browser_webbrowser);
+
+        ProgressBar spinner = (ProgressBar)findViewById(R.id.webview_progressBar);
+        mWebBrowser.setProgressBarSpinner(spinner);
 
         mWebBrowser.init(mHandler, HDLR_MSG_WEBVIEW_INITIALIZED);
     }
