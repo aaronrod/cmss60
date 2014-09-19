@@ -5,10 +5,12 @@ import android.cmss60.R;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.webkit.JsResult;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Toast;
 
 public class JSInterfaceActivity extends Activity {
@@ -20,7 +22,6 @@ public class JSInterfaceActivity extends Activity {
 
     Context mThis;
     private WebView mWebView;
-    protected WebChromeClient mWebChromeClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +35,23 @@ public class JSInterfaceActivity extends Activity {
 
         mWebView = (WebView) findViewById(R.id.activity_jsinterface_webview);
         /// set up web chrome client for Javascript calls like console.log to work
-        mWebChromeClient = new WebBrowserWebChromeClient();
-        mWebView.setWebChromeClient(mWebChromeClient);
-
+        mWebView.setWebChromeClient(new WebBrowserWebChromeClient());
+        mWebView.setWebViewClient(new WebBrowserWebViewClient());
         showWebView();
+    }
+
+    protected class WebBrowserWebViewClient extends WebViewClient {
+        @Override
+        public void onPageFinished(WebView view, String url) {
+            Log.v(TAG, String.format("onPageFinished() url: %s", url));
+            // inject JavaScript function into the web page
+            // this function log to logcat and put up a Toast via JSInterface
+            mWebView.loadUrl("javascript:" +
+                            "function showAndroidToast(toast) {" +
+                            "    Android.log(\"demo_js.html showAndroidToast()\");" +
+                            "    Android.showToast(toast);" +
+                            "}");
+        }
     }
 
     protected class WebBrowserWebChromeClient extends WebChromeClient {
