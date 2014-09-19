@@ -6,7 +6,9 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.MediaController;
+import android.widget.ProgressBar;
 import android.widget.VideoView;
 
 
@@ -17,6 +19,7 @@ public class VideoPlayer extends Activity
     public static final String KEY_URL = "key_url";
     private String url;
     private VideoView videoView;
+    private ProgressBar progressBarSpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +30,8 @@ public class VideoPlayer extends Activity
         if(extras != null){
             url = extras.getString(KEY_URL);
         }
+        progressBarSpinner = (ProgressBar)findViewById(R.id.vid_progressBar);
+        progressBarSpinner.setVisibility(View.VISIBLE);
 
         videoView = (VideoView)findViewById(R.id.videoView);
         MediaController controller = new MediaController(this);
@@ -47,6 +52,7 @@ public class VideoPlayer extends Activity
     @Override
     public void onPrepared(MediaPlayer mp) {
         Log.v(TAG, "onPrepared()");
+        progressBarSpinner.setVisibility(View.GONE);
         videoView.start();
     }
 
