@@ -100,16 +100,18 @@ public class WebBrowser extends WebView {
     }
 
     private void configWebView() {
-
+        // configure the WebView
         WebSettings settings = getSettings();
-
+        // enable the builtin zoom controls
         settings.setBuiltInZoomControls(true);
-        settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);
+        // allow web pages' viewport meta tag to control the width of viewport
+        // or use wide viewport of meta tag is not present
         settings.setUseWideViewPort(true);
+        // load the page zoomed out
         settings.setLoadWithOverviewMode(true);
-        settings.setSaveFormData(true);
         // enable JavaScript
         settings.setJavaScriptEnabled(true);
+        // enable DOM storage in client device
         settings.setDomStorageEnabled(true);
         // append the app specific info to the WebView user agent string
         final String userAgent = settings.getUserAgentString() + " "
