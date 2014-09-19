@@ -85,6 +85,4 @@ public class Lesson3Activity extends Activity {
         alertDialog.show();
     }
 
-
-
 }

@@ -9,7 +9,6 @@ import android.os.Handler;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
-import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -79,8 +78,8 @@ public class WebBrowser extends WebView {
                 mIsInitialized = true;
                 mOnInitHdlr.sendEmptyMessage(mHandlerWhat);
             }
-
-            if(mProgressBarSpinner != null){
+            // dismiss progress spinner
+            if (mProgressBarSpinner != null) {
                 mProgressBarSpinner.setVisibility(View.GONE);
             }
         }

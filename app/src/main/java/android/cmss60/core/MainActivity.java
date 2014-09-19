@@ -23,6 +23,12 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        ((SocialTVApplication)getApplication()).setAppExiting(true);
+    }
+
     public void clickLesson0(View v){
         Intent i = new Intent(this, Lesson0Activity.class);
         startActivity(i);

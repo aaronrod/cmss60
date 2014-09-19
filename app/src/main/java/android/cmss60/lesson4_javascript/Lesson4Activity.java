@@ -10,7 +10,6 @@ package android.cmss60.lesson4_javascript;
 
 import android.app.Activity;
 import android.cmss60.R;
-import android.cmss60.mobile_demo.*;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
