@@ -1,4 +1,4 @@
-package android.cmss60.mobile_demo;
+package android.cmss60.core;
 
 import android.content.Context;
 import android.util.Log;
@@ -12,7 +12,7 @@ public class JSInterface {
     Context mContext;
     String mLogTag;
 
-    JSInterface(Context context, String logTag) {
+    public JSInterface(Context context, String logTag) {
         mContext = context;
         mLogTag = logTag;
     }
@@ -27,7 +27,7 @@ public class JSInterface {
         if (toast == null) {
             Log.v(TAG, "toast is null");
         } else {
-            Toast.makeText(mContext, toast, Toast.LENGTH_LONG).show();
+            Toast.makeText(mContext, toast, Toast.LENGTH_SHORT).show();
         }
     }
 }

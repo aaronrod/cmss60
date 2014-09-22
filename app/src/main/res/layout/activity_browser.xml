@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     tools:context=".BrowserActivity">
 
-    <android.cmss60.mobile_demo.WebBrowser
+    <android.cmss60.core.WebBrowser
         android:id="@+id/activity_browser_webbrowser"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

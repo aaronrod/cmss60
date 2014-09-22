@@ -3,6 +3,7 @@ package android.cmss60.mobile_demo;
 import android.app.Activity;
 import android.cmss60.R;
 import android.cmss60.core.SocialTVApplication;
+import android.cmss60.core.WebBrowser;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;

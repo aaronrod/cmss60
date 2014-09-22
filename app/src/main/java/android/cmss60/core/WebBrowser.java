@@ -1,7 +1,6 @@
-package android.cmss60.mobile_demo;
+package android.cmss60.core;
 
 import android.app.Activity;
-import android.cmss60.core.SocialTVApplication;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
