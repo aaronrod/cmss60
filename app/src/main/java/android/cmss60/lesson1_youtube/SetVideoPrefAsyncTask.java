@@ -11,11 +11,11 @@ public class SetVideoPrefAsyncTask extends AsyncTask<VideoPreference, Void, Stri
 
     public static final String PREF_FILE_NAME = "video_url_prefs";
     private static final String KEY_URL = "video_url";
-    private VideoPreference vidPref;
-    private SharedPreferences sharedPrefs;
+    private VideoPreference mVidPref;
+    private SharedPreferences mSharedPrefs;
 
     public SetVideoPrefAsyncTask(SharedPreferences sharedPrefs){
-        this.sharedPrefs = sharedPrefs;
+        this.mSharedPrefs = sharedPrefs;
     }
 
     /**
@@ -31,17 +31,17 @@ public class SetVideoPrefAsyncTask extends AsyncTask<VideoPreference, Void, Stri
         // e.g. execute(vidPref0, vidPref1, vidPref2);
         // Since we only need one VideoPreference variable for this example, we supplied one and
         // can access it via the first and only element in paramsArray[0]
-        this.vidPref = paramsArray[0];
+        this.mVidPref = paramsArray[0];
 
-        if(vidPref.openEditor()){
+        if (mVidPref.openEditor()) {
             //We want to save the url to the SharedPreferences
-            Editor edit = sharedPrefs.edit();
+            Editor edit = mSharedPrefs.edit();
             edit.clear();
-            edit.putString(KEY_URL, vidPref.getUrl());
+            edit.putString(KEY_URL, mVidPref.getUrl());
             edit.commit();
         } else {
             //or we want to retrieve a saved url if there is one
-            return sharedPrefs.getString(KEY_URL, "");
+            return mSharedPrefs.getString(KEY_URL, "");
         }
 
         return null;
@@ -54,7 +54,7 @@ public class SetVideoPrefAsyncTask extends AsyncTask<VideoPreference, Void, Stri
     @Override
     protected void onPostExecute(String url) {
         super.onPostExecute(url);
-        vidPref.updateUI(url);
+        mVidPref.updateUI(url);
     }
 
 }
