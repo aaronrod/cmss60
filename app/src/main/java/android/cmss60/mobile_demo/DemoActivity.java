@@ -32,13 +32,6 @@ public class DemoActivity extends Activity {
 
     }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Log.d(TAG, "onStop() app exiting");
-        ((SocialTVApplication)getApplication()).setAppExiting(true);
-    }
-
     private void startPlayer(String url) {
         Intent i = new Intent(this, VideoPlayer.class);
         i.putExtra(VideoPlayer.KEY_URL, url);
