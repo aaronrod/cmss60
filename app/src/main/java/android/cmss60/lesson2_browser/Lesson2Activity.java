@@ -95,12 +95,23 @@ public class Lesson2Activity extends Activity {
 
         setContentView(R.layout.activity_browser);
 
+        showWebBrowser();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         // register a receiver to listen to wifi connection changes
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(WifiManager.SUPPLICANT_CONNECTION_CHANGE_ACTION);
         registerReceiver(mBroadcastReceiver, intentFilter);
+    }
 
-        showWebBrowser();
+    @Override
+    protected void onPause() {
+        super.onPause();
+        // unregister the listener
+        unregisterReceiver(mBroadcastReceiver);
     }
 
     private void showWebBrowser() {
