@@ -7,6 +7,7 @@ import android.cmss60.lesson2_browser.Lesson2Activity;
 import android.cmss60.lesson3_videoplayer.Lesson3Activity;
 import android.cmss60.lesson4_javascript.Lesson4Activity;
 import android.cmss60.mobile_demo.DemoActivity;
+import android.cmss60.mobile_demo.GridViewActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.cmss60.R;
