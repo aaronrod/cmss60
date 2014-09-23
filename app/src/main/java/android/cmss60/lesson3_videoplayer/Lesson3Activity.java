@@ -45,6 +45,10 @@ public class Lesson3Activity extends Activity {
         startPlayerDialog(url);
     }
 
+    /**
+     * Big Buck Bunny: http://en.wikipedia.org/wiki/Big_Buck_Bunny
+     * @param v
+     */
     public void clickRemoteVod(View v){
         Resources r = getResources();
         String url = r.getString(R.string.remote_vod_url);
