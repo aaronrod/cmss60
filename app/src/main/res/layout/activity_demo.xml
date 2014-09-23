@@ -36,27 +36,32 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal">
 
-            <Button
+            <ImageButton
                 android:layout_weight="0.33"
+                android:src="@drawable/sunflower"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="100dp"
+                android:scaleType="fitXY"
                 android:onClick="clickLocalVideo"
                 android:text="Local VOD"
                 android:id="@+id/localVideoButton" />
 
-            <Button
+            <ImageButton
                 android:layout_weight="0.33"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="100dp"
+                android:scaleType="fitXY"
                 android:onClick="clickRemoteVideo"
                 android:text="Remote VOD"
                 android:id="@+id/remoteVideoButton" />
 
-            <Button
+            <ImageButton
+                android:src="@drawable/news"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="100dp"
+                android:scaleType="fitXY"
                 android:text="HLS"
-                android:id="@+id/lesson0Button"
+                android:id="@+id/hlsVideoButton"
                 android:onClick="clickHlsVideo"
                 android:layout_weight="0.33" />
         </LinearLayout>
