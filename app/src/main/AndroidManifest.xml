@@ -55,8 +55,18 @@
             android:launchMode="singleTask" >
         </activity>
         <activity
+            android:name=".mobile_demo.GridViewActivity"
+            android:label="GridView"
+            android:launchMode="singleTask" >
+        </activity>
+        <activity
             android:name=".lesson3_videoplayer.Lesson3Activity"
             android:label="Lesson3"
+            android:launchMode="singleTask" >
+        </activity>
+        <activity
+            android:name=".lesson3_videoplayer.Lesson3_VideoPlayer"
+            android:label="Lesson3_VideoPlayer"
             android:launchMode="singleTask" >
         </activity>
         <activity
