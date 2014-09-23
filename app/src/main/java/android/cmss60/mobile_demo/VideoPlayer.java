@@ -44,8 +44,16 @@ public class VideoPlayer extends Activity
     }
 
     @Override
+    protected void onPause() {
+        Log.v(TAG, "onPause()");
+        super.onPause();
+        videoView.setKeepScreenOn(false);
+    }
+
+    @Override
     public void onCompletion(MediaPlayer mp) {
         Log.v(TAG, "onCompletion()");
+        videoView.setKeepScreenOn(false);
         finish(); //closes the Activity and returns to the previous Activity
     }
 
@@ -53,6 +61,7 @@ public class VideoPlayer extends Activity
     public void onPrepared(MediaPlayer mp) {
         Log.v(TAG, "onPrepared()");
         progressBarSpinner.setVisibility(View.GONE);
+        videoView.setKeepScreenOn(true);
         videoView.start();
     }
 
