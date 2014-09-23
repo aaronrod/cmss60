@@ -19,10 +19,10 @@ public class VideoPlayer extends Activity
     private static final String TAG = "VideoPlayer";
     public static final String KEY_URL = "key_url";
     public static final String KEY_LANDSCAPE = "key_landscape";
-    private String url;
-    private boolean isLandscape;
-    private VideoView videoView;
-    private ProgressBar progressBarSpinner;
+    private String mUrl;
+    private boolean mIsLandscape;
+    private VideoView mVideoView;
+    private ProgressBar mProgressBarSpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,46 +31,46 @@ public class VideoPlayer extends Activity
 
         Bundle extras = getIntent().getExtras();
         if(extras != null){
-            url = extras.getString(KEY_URL);
-            isLandscape = extras.getBoolean(KEY_LANDSCAPE);
-            if(isLandscape){
+            mUrl = extras.getString(KEY_URL);
+            mIsLandscape = extras.getBoolean(KEY_LANDSCAPE);
+            if(mIsLandscape){
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
             }
         }
 
-        progressBarSpinner = (ProgressBar)findViewById(R.id.vid_progressBar);
-        progressBarSpinner.setVisibility(View.VISIBLE);
+        mProgressBarSpinner = (ProgressBar)findViewById(R.id.vid_progressBar);
+        mProgressBarSpinner.setVisibility(View.VISIBLE);
 
-        videoView = (VideoView)findViewById(R.id.videoView);
+        mVideoView = (VideoView)findViewById(R.id.videoView);
         MediaController controller = new MediaController(this);
-        videoView.setMediaController(controller);
-        controller.setAnchorView(videoView);
-        videoView.requestFocus();
-        videoView.setOnCompletionListener(this);
-        videoView.setOnPreparedListener(this);
-        videoView.setVideoURI(Uri.parse(url));
+        mVideoView.setMediaController(controller);
+        controller.setAnchorView(mVideoView);
+        mVideoView.requestFocus();
+        mVideoView.setOnCompletionListener(this);
+        mVideoView.setOnPreparedListener(this);
+        mVideoView.setVideoURI(Uri.parse(mUrl));
     }
 
     @Override
     protected void onPause() {
         Log.v(TAG, "onPause()");
         super.onPause();
-        videoView.setKeepScreenOn(false);
+        mVideoView.setKeepScreenOn(false);
     }
 
     @Override
     public void onCompletion(MediaPlayer mp) {
         Log.v(TAG, "onCompletion()");
-        videoView.setKeepScreenOn(false);
+        mVideoView.setKeepScreenOn(false);
         finish(); //closes the Activity and returns to the previous Activity
     }
 
     @Override
     public void onPrepared(MediaPlayer mp) {
         Log.v(TAG, "onPrepared()");
-        progressBarSpinner.setVisibility(View.GONE);
-        videoView.setKeepScreenOn(true);
-        videoView.start();
+        mProgressBarSpinner.setVisibility(View.GONE);
+        mVideoView.setKeepScreenOn(true);
+        mVideoView.start();
     }
 
 }
