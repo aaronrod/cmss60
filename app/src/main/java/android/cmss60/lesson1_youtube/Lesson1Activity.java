@@ -35,8 +35,8 @@ public class Lesson1Activity extends Activity {
     private static final String YOUTUBE_CALTECH_URL = "http://youtu.be/zFH_haNX38E";
     private static final String DEFAULT_URL = "http://youtu.be/8lXdyD2Yzls";
 
-    private RadioButton mitRadioButton;
-    private RadioButton caltechRadioButton;
+    private RadioButton mMitRadioButton;
+    private RadioButton mCaltechRadioButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +44,8 @@ public class Lesson1Activity extends Activity {
         Log.d(TAG, "onCreate()");
         setContentView(R.layout.activity_youtube);
 
-        mitRadioButton = (RadioButton)findViewById(R.id.mit_radioButton0);
-        caltechRadioButton = (RadioButton)findViewById(R.id.caltech_radioButton1);
+        mMitRadioButton = (RadioButton)findViewById(R.id.mit_radioButton0);
+        mCaltechRadioButton = (RadioButton)findViewById(R.id.caltech_radioButton1);
     }
 
     @Override
@@ -92,14 +92,14 @@ public class Lesson1Activity extends Activity {
 
                 //toggle RadioButtons.
                 if(url.compareTo(YOUTUBE_MIT_URL) == 0) {
-                    mitRadioButton.setChecked(true);
+                    mMitRadioButton.setChecked(true);
                     // Since only one RadioButton can be checked at one time, there is no need
                     // to continue checking for a match
                     return;
                 }
 
                 if(url.compareTo(YOUTUBE_CALTECH_URL) == 0){
-                    caltechRadioButton.setChecked(true);
+                    mCaltechRadioButton.setChecked(true);
                     return; // here in case you add more options later
                 }
 
@@ -121,9 +121,9 @@ public class Lesson1Activity extends Activity {
      */
     private String getUrl() {
 
-        if(mitRadioButton.isChecked()) return YOUTUBE_MIT_URL;
+        if(mMitRadioButton.isChecked()) return YOUTUBE_MIT_URL;
 
-        if(caltechRadioButton.isChecked()) return YOUTUBE_CALTECH_URL;
+        if(mCaltechRadioButton.isChecked()) return YOUTUBE_CALTECH_URL;
 
         return DEFAULT_URL;
     }
@@ -145,8 +145,8 @@ public class Lesson1Activity extends Activity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.reset_radio_buttons) {
-            mitRadioButton.setChecked(false);
-            caltechRadioButton.setChecked(false);
+            mMitRadioButton.setChecked(false);
+            mCaltechRadioButton.setChecked(false);
             Toast.makeText(this, "Radio Buttons Reset", Toast.LENGTH_SHORT).show();
             return true;
         }
