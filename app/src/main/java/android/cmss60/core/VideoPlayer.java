@@ -1,7 +1,8 @@
-package android.cmss60.mobile_demo;
+package android.cmss60.core;
 
 import android.app.Activity;
 import android.cmss60.R;
+import android.content.pm.ActivityInfo;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -17,7 +18,9 @@ public class VideoPlayer extends Activity
 
     private static final String TAG = "VideoPlayer";
     public static final String KEY_URL = "key_url";
+    public static final String KEY_LANDSCAPE = "key_landscape";
     private String url;
+    private boolean isLandscape;
     private VideoView videoView;
     private ProgressBar progressBarSpinner;
 
@@ -29,7 +32,12 @@ public class VideoPlayer extends Activity
         Bundle extras = getIntent().getExtras();
         if(extras != null){
             url = extras.getString(KEY_URL);
+            isLandscape = extras.getBoolean(KEY_LANDSCAPE);
+            if(isLandscape){
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+            }
         }
+
         progressBarSpinner = (ProgressBar)findViewById(R.id.vid_progressBar);
         progressBarSpinner.setVisibility(View.VISIBLE);
 

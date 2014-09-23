@@ -3,6 +3,7 @@ package android.cmss60.lesson3_videoplayer;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.cmss60.R;
+import android.cmss60.core.VideoPlayer;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -31,9 +32,9 @@ public class Lesson3Activity extends Activity {
             //Nothing to play...
             return;
         }
-        Intent i = new Intent(this, Lesson3_VideoPlayer.class);
-        i.putExtra(Lesson3_VideoPlayer.KEY_URL, url);
-        i.putExtra(Lesson3_VideoPlayer.KEY_LANDSCAPE, isLandscape);
+        Intent i = new Intent(this, VideoPlayer.class);
+        i.putExtra(VideoPlayer.KEY_URL, url);
+        i.putExtra(VideoPlayer.KEY_LANDSCAPE, isLandscape);
         startActivity(i);
     }
 

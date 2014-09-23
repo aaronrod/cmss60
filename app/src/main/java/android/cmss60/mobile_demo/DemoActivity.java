@@ -4,6 +4,7 @@ package android.cmss60.mobile_demo;
 import android.app.Activity;
 import android.cmss60.R;
 import android.cmss60.core.SocialTVApplication;
+import android.cmss60.core.VideoPlayer;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.net.Uri;

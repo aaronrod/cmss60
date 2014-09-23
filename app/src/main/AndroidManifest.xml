@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".mobile_demo.VideoPlayer"
+            android:name=".core.VideoPlayer"
             android:label="@string/title_activity_video_player"
             android:launchMode="singleTask"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
@@ -55,18 +55,8 @@
             android:launchMode="singleTask" >
         </activity>
         <activity
-            android:name=".lesson2_browser.BrowserActivity1"
-            android:label="Lesson2"
-            android:launchMode="singleTask" >
-        </activity>
-        <activity
             android:name=".lesson3_videoplayer.Lesson3Activity"
             android:label="Lesson3"
-            android:launchMode="singleTask" >
-        </activity>
-        <activity
-            android:name=".lesson3_videoplayer.Lesson3_VideoPlayer"
-            android:label="Lesson3_VideoPlayer"
             android:launchMode="singleTask" >
         </activity>
         <activity
